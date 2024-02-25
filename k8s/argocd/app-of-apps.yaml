@@ -16,8 +16,8 @@ spec:
     path: k8s/applications
     repoURL: https://github.com/masondenney/mdenney-config.git
     targetRevision: HEAD
-    kustomize:
-      version: v5.1.0
+#    kustomize:
+#      version: v5.1.0
   syncPolicy:
     automated:
       prune: true
