@@ -1,0 +1,33 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: default
+spec:
+  description: default project
+
+  # Allow manifests to deploy from any Git repos
+  sourceRepos:
+    - "*"
+
+  destinations:
+    - namespace: argocd
+      server: https://kubernetes.default.svc
+
+  # Deny most cluster-scoped resources from being created, except for:
+  clusterResourceWhitelist:
+    - group: ""
+      kind: Namespace
+
+  # Allow all namespaced-scoped resources to be created, except for:
+  namespaceResourceBlacklist:
+    - group: ""
+      kind: ResourceQuota
+    - group: ""
+      kind: LimitRange
+    - group: ""
+      kind: NetworkPolicy
+
+  # Enables namespace orphaned resource monitoring.
+  orphanedResources:
+    warn: true
