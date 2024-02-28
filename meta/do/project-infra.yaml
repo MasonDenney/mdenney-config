@@ -8,7 +8,8 @@ spec:
 
   # Allow manifests to deploy from any Git repos
   sourceRepos:
-    - "ssh://git@github.com/masondenney/mdenney-config.git"
+    #- "ssh://git@github.com/masondenney/mdenney-config.git"
+    - "https://git@github.com/masondenney/mdenney-config"
     - "https://kubernetes-charts.storage.googleapis.com"
     - "https://charts.helm.sh/stable"
 

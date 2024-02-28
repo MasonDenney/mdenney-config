@@ -3,7 +3,8 @@ applications:
     project: argocd
     source:
       path: meta/do
-      repoURL: "ssh://git@github.com/masondenney/mdenney-config.git"
+      repoURL: "https://github.com/masondenney/mdenney-config"
+      #repoURL: "ssh://git@github.com/masondenney/mdenney-config.git"
       targetRevision: master
     destination:
       namespace: argocd
@@ -20,7 +21,8 @@ applicationsets:
 
     generators:
       - git:
-          repoURL: ssh://git@github.com/masondenney/mdenney-config.git
+          repoURL: "https://github.com/masondenney/mdenney-config"
+          #repoURL: ssh://git@github.com/masondenney/mdenney-config.git
           revision: master
           files:
             - path: applications/*/*/home/config.json
@@ -36,7 +38,8 @@ applicationsets:
         project: "{{path[1]}}"
         source:
           path: "{{path}}"
-          repoURL: ssh://git@github.com/masondenney/mdenney-config.git
+          repoURL: "https://github.com/masondenney/mdenney-config"
+          #repoURL: ssh://git@github.com/masondenney/mdenney-config.git
           targetRevision: master
         destination:
           namespace: "{{config.namespace}}"
@@ -55,8 +58,10 @@ projects:
     namespace: argocd
     description: Contains the definitions for ArgoCD itself
     sourceRepos:
-      - "ssh://git@github.com/masondenney/mdenney-config.git"
-      - "ssh://git@github.com/argoproj/argo-helm.git"
+      - "https://git@github.com/masondenney/mdenney-config"
+      #- "ssh://git@github.com/masondenney/mdenney-config.git"
+      - "https://git@github.com/argoproj/argo-helm"
+      #- "ssh://git@github.com/argoproj/argo-helm.git"
     destinations:
       - namespace: "argocd"
         server: https://kubernetes.default.svc
