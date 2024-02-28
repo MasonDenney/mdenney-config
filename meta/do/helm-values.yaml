@@ -7,7 +7,7 @@ applications:
       targetRevision: master
     destination:
       namespace: argocd
-      name: do
+#      name: do
     syncPolicy:
       automated:
         selfHeal: false
