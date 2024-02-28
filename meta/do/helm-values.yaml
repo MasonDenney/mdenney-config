@@ -58,9 +58,9 @@ projects:
     namespace: argocd
     description: Contains the definitions for ArgoCD itself
     sourceRepos:
-      - "https://git@github.com/masondenney/mdenney-config"
+      - "https://github.com/masondenney/mdenney-config"
       #- "ssh://git@github.com/masondenney/mdenney-config.git"
-      - "https://git@github.com/argoproj/argo-helm"
+      - "https://github.com/argoproj/argo-helm"
       #- "ssh://git@github.com/argoproj/argo-helm.git"
     destinations:
       - namespace: "argocd"
