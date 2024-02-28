@@ -5,7 +5,8 @@ applications:
       path: meta/do
       repoURL: "https://github.com/masondenney/mdenney-config"
       #repoURL: "ssh://git@github.com/masondenney/mdenney-config.git"
-      targetRevision: master
+      #targetRevision: master
+      targetRevision: main
     destination:
       namespace: argocd
       server: https://kubernetes.default.svc
@@ -23,7 +24,8 @@ applicationsets:
       - git:
           repoURL: "https://github.com/masondenney/mdenney-config"
           #repoURL: ssh://git@github.com/masondenney/mdenney-config.git
-          revision: master
+          #revision: master
+          revision: main
           files:
             - path: applications/*/*/home/config.json
             - path: applications/*/*/do/config.json
@@ -40,7 +42,8 @@ applicationsets:
           path: "{{path}}"
           repoURL: "https://github.com/masondenney/mdenney-config"
           #repoURL: ssh://git@github.com/masondenney/mdenney-config.git
-          targetRevision: master
+          #targetRevision: master
+          targetRevision: main
         destination:
           namespace: "{{config.namespace}}"
           name: "{{path.basename}}"
