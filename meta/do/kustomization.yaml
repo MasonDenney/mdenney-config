@@ -11,6 +11,6 @@ helmCharts:
     valuesFile: helm-values.yaml
     version: 1.6.2
 
-#resources:
-#  - project-default.yaml
-#  - project-infra.yaml
+resources:
+  - project-default.yaml
+  - project-infra.yaml
