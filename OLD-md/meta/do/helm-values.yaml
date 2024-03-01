@@ -27,7 +27,7 @@ applicationsets:
           #revision: master
           revision: main
           files:
-            #- path: applications/*/*/home/config.json
+            - path: applications/*/*/home/config.json
             - path: applications/*/*/do/config.json
     template:
       metadata:
