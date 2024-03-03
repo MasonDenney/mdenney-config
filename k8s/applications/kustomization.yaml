@@ -13,6 +13,9 @@ helmCharts:
 - name: argocd-app
   valuesInline:
     name: prometheus
+#- name: argocd-app
+#  valuesInline:
+#    name: lgtm-distributed
 - name: argocd-app
   valuesInline:
-    name: lgtm-distributed
+    name: falco

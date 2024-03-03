@@ -1,0 +1,13 @@
+#https://github.com/falcosecurity/charts/blob/master/charts/falco/values.yaml
+driver:
+  # -- Set it to false if you want to deploy Falco without the drivers.
+  # Always set it to false when using Falco with plugins.
+  enabled: true
+  # -- kind tells Falco which driver to use. Available options: kmod (kernel driver), ebpf (eBPF probe), modern_ebpf (modern eBPF probe).
+  kind: ebpf
+  # -- Configuration for the Falco init container.
+  loader:
+    # -- Enable/disable the init container.
+    enabled: true
+    initContainer:
+      enabled: true
