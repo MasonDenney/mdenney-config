@@ -12,9 +12,3 @@ helmCharts:
     version: 6.4.0
 
 namespace: argocd
-
-#resources:
-#  - sealedsecret-argocd-secret.yaml
-#  - sealedsecret-github-key.yaml
-#  - sealedsecret-cluster-do.yaml
-#  - sealedsecret-megadoomer-cluster-config.yaml

@@ -1,0 +1,24 @@
+# helm repo add prometheus-community https://prometheus-community.github.io/helm-charts
+# helm search repo prometheus-community
+# NAME                              CHART VERSION   APP VERSION
+# prometheus-community/prometheus   25.1.0          v2.47.0
+
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+# https://github.com/argoproj/argo-helm/tree/main/charts/argo-cd
+
+namespace: prometheus
+
+# helm repo add argo https://argoproj.github.io/argo-helm
+helmCharts:
+- name: prometheus
+  releaseName: prometheus
+  version: 25.1.0
+  repo: https://prometheus-community.github.io/helm-charts
+
+resources:
+# - "https://github.com/argoproj/argo-cd/manifests/crds?ref=v2.8.4"
+# - "httproute.yaml"
+
+patches:
+# - path: ./deployment-argo-cd-argocd-server.patch.yaml

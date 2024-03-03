@@ -1,0 +1,29 @@
+# this is the app of apps pattern
+# deploying this will deploy all other applications in the k8s/applications folder
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: applications
+  namespace: argocd
+  # finalizers:
+  # - resources-finalizer.argocd.argoproj.io
+  annotations:
+    argocd.argoproj.io/manifest-generate-paths: .;../../charts
+spec:
+  destination:
+    namespace: argocd
+    server: https://kubernetes.default.svc
+  project: default
+  source:
+    path: k8s/applications
+    repoURL: https://github.com/masondenney/mdenney-config.git
+    targetRevision: HEAD
+    # kustomize:
+    # version: v5.1.0
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+      allowEmpty: true
+    syncOptions:
+    - CreateNamespace=true

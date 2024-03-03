@@ -11,7 +11,7 @@ spec:
     server: https://kubernetes.default.svc
   project: default
   source:
-    path: k8s/prometheus
+    path: applications/prometheus
     repoURL: https://github.com/masondenney/mdenney-config.git
     targetRevision: HEAD
   syncPolicy:
