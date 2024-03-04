@@ -1,21 +1,25 @@
 #make k8s cluster
-terraform -chdir tf apply
+terraform -chdir=tf apply -auto-approve
 
 #configure kubectl
 gcloud container clusters get-credentials mygke-cluster-prod --region us-east1
 
 # Create ArgoCD
 kubectl create namespace argocd
-kustomize build k8s/applications/argocd --enable-helm | kubectl apply -f -
+kustomize build k8s/argocd --enable-helm | kubectl apply -f -
 kubens argocd
 
-# UI
-argocd admin initial-password -n argocd
-#kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
-kubectl port-forward svc/argocd-server -n argocd 8080:443
+# Wait 5 sec or get error
+sleep 5
 
 # Create App of Apps
 kubectl apply -f appofapps.yaml
 
 # To add new apps make new subfolder under k8s and then add new entry in k8s/applications/kustomization.yaml
 # This will use the argocd-apps helm chart to generate Application files using the template from the helm-charts/argocd-app
+
+# UI
+argocd admin initial-password -n argocd
+#kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+kubectl port-forward svc/argocd-server -n argocd 8080:443
+# In browser, open https://localhost:8080
