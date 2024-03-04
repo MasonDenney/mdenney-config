@@ -1,1 +1,0 @@
-# mdenney-config

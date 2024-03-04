@@ -1,4 +1,4 @@
-#https://github.com/falcosecurity/charts/blob/master/charts/falco/values.yaml
+# From https://github.com/falcosecurity/charts/blob/master/charts/falco/values.yaml
 driver:
   # -- Set it to false if you want to deploy Falco without the drivers.
   # Always set it to false when using Falco with plugins.

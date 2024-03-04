@@ -2,6 +2,8 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
+namespace: argocd
+
 helmCharts:
   - includeCRDs: true
     name: argo-cd
@@ -10,5 +12,3 @@ helmCharts:
     repo: https://argoproj.github.io/argo-helm
     valuesFile: helm-values.yaml
     version: 6.4.0
-
-namespace: argocd
