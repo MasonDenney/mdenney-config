@@ -54,3 +54,8 @@ kubectl port-forward svc/argocd-server -n argocd 8080:443
 #   makes cluster w web server, then makes static IP
 #   in domain registrar point A record to IP
 #   create issuer for letsencrypt then reconfigure ingress for ssl
+
+##################################################
+# reflector
+#  Copying secrets/configmaps to other namespaces using annotations
+#  supports cert-manager
